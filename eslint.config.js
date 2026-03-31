@@ -9,19 +9,23 @@ export default defineConfig([
   globalIgnores(["dist"]),
   {
     files: ["**/*.{ts,tsx}"],
+    root: true,
+    env: { browser: true, es2020: true },
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
+    ignorePatterns: ["dist", "eslint.config.js"],
+    parser: "@typescript-eslint/parser",
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    plugins: ["react-refresh"],
     rules: {
       "react-refresh/only-export-components": "off",
-      "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-unused-vars": "off",
     },
   },
