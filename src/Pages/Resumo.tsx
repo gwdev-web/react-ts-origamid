@@ -1,7 +1,12 @@
 import React from "react";
+import DateRange from "../Components/DateRange";
 
 const Resumo = () => {
-  return <div>Resumo</div>;
+  return (
+    <div>
+      <DateRange />
+    </div>
+  );
 };
 
 export default Resumo;
