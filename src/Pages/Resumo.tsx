@@ -1,9 +1,12 @@
 import React from "react";
 import { useData } from "../Context/DataContext";
+import Loading from "../Components/Loading";
+import GraficoVendas from "../Components/GraficoVendas";
 
 const Resumo = () => {
-  const { data } = useData();
+  const { data, loading } = useData();
 
+  if (loading === true) return <Loading />;
   if (data === null) return null;
   return (
     <section>
@@ -42,7 +45,9 @@ const Resumo = () => {
         </div>
       </div>
 
-      <div className="box mb">Gráficos</div>
+      <div className="box mb">
+        <GraficoVendas data={data} />
+      </div>
     </section>
   );
 };
